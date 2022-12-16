@@ -10,7 +10,6 @@ function [af,discard]= get_similar(param1, param2)
     for i=1:size(af,1);
         af(i,:)=af(i,:)/S(i);
     end;
-    %% remove badly scaled affine from consideration
     M=sort(abs(af),2, 'descend');
     M=M(:,1)./M(:,2);
     discard=find(M> 5);
